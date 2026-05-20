@@ -31,6 +31,17 @@ This project demonstrates core Data Engineering principles, including custom sch
 * Apache Spark installed locally or running in a notebook environment (e.g., Google Colab / Jupyter).
 * A source file named `fin_sample.csv` in the root directory matching the expected schema.
 
+### Sample Data Ingestion Format
+Since the raw transaction log (`fin_sample.csv`) is omitted due to size constraints, the pipeline expects an ingested CSV schema structured as follows:
+
+| #SYMBOL | SYSTEM | MOMENT            | ID_DEAL | PRICE_DEAL | VOLUME | OPEN_POS | DIRECTION |
+|---------|--------|-------------------|---------|------------|--------|----------|-----------|
+| AAPL    | EQTY   | 20110103100015123 | 9876543 | 150.25     | 100    | 50000    | B         |
+| MSFT    | EQTY   | 20110103100045456 | 9876544 | 240.50     | 50     | 12000    | S         |
+
+*Note: The `MOMENT` string format represents `YYYYMMDDHHMMSSmmm` (Year, Month, Day, Hour, Minute, Second, Millisecond).*
+
+
 ### Execution
 To run the script using default configurations:
 ```bash
